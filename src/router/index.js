@@ -10,10 +10,32 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/',
+    component: () => import('@/views/Layout.vue'),
+    redirect: '/home',
+    children: [{
+      path: '/home', // path为空表示默认子路由
+      name: 'Home',
+      component: () => import('@/views/Home')
+    },
+    {
+      path: '/wenda', // path为空表示默认子路由
+      name: 'Wenda',
+      component: () => import('@/views/Wenda.vue')
+    },
+    {
+      path: '/videos', // path为空表示默认子路由
+      name: 'Videos',
+      component: () => import('../views/Videos.vue')
+    },
+    {
+      path: '/user', // path为空表示默认子路由
+      name: 'User',
+      component: () => import('../views/User.vue')
+    }]
   }
 ]
 

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { login, sendSms } from '../api/login'
+import { login, sendSms } from '../api/user'
 
 export default {
   data () {
@@ -73,9 +73,13 @@ export default {
       await login(values)
         .then(({ data }) => {
           this.$toast.success('登录成功')
-          this.$storestore.commit('setUser', data.data) // 修改store中的user数据
+          this.$store.commit('setUser', data.data) // 修改store中的user数据
+          this.$router.push('./')
         })
-        .catch(() => this.$toast.fail('登录失败'))
+        .catch((err) => {
+          this.$toast.fail('登录失败')
+          console.log(err)
+        })
     },
     // 发送验证码
     async onSendSms () {

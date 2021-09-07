@@ -9,6 +9,8 @@ import 'vant/lib/index.css'
 // 动态设置rem基准值
 import 'amfe-flexible'
 import './styles/index.less'
+// 全局处理相对时间
+import './utils/dayjs'
 
 // 全局注册
 Vue.use(Vant)
