@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     async onLoad () {
+      console.log(1)
       // 1. 请求获取数据
       await getArticles({
         channel_id: this.channel.id,

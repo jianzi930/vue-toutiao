@@ -14,13 +14,14 @@
         <span>视频</span>
       </van-tabbar-item><van-tabbar-item to="/user">
         <i slot="icon" class="iconfont icon-wode"></i>
-        <span>{{ this.$store.user? '我的': '未登录'}}</span>
+        <span>{{ this.user? '我的': '未登录'}}</span>
       </van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Layout',
   data () {
@@ -28,9 +29,8 @@ export default {
       active: 0
     }
   },
-  mounted () {
-  },
-  methods: {
+  computed: {
+    ...mapState(['user'])
   }
 }
 </script>

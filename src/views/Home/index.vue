@@ -2,14 +2,14 @@
   <div class="home-con">
     <!-- 搜索导航栏 -->
     <van-nav-bar class="page-nav-bar" :border="false">
-      <van-button slot="title" round type="info" icon="search">搜索</van-button>
+      <van-button slot="title" round type="info" icon="search" @click="$router.push('/search')">搜索</van-button>
     </van-nav-bar>
     <!-- 频道标签 -->
     <van-tabs v-model="active" animated swipeable  :border="true">
       <van-tab v-for="obj in channels" :title="obj.name" :key="obj.id">
         <div slot="default">
           <!-- 文章列表 -->
-          <ArticleList :channel="obj" :key="obj.id" />
+          <ArticleList :channel="obj"/>
         </div>
       </van-tab>
       <div slot="nav-right" class="placeholder"></div>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { getUserChannels } from '@/api/user'
 import ArticleList from './compontents/article-list'
 import ChannelEdit from './compontents/channel-edit'
@@ -53,7 +54,7 @@ export default {
   },
   methods: {
     async loadUserChannels () {
-      if (this.$store.user) {
+      if (this.user) {
         await getUserChannels()
           .then(({ data }) => {
             this.channels = data.data.channels
@@ -67,6 +68,9 @@ export default {
       this.isChannelEditShow = bool
       this.active = index
     }
+  },
+  computed: {
+    ...mapState(['user'])
   }
 }
 </script>

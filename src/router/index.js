@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue')
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/',
@@ -29,13 +29,18 @@ const routes = [
     {
       path: '/videos', // path为空表示默认子路由
       name: 'Videos',
-      component: () => import('../views/Videos.vue')
+      component: () => import('@/views/Videos.vue')
     },
     {
       path: '/user', // path为空表示默认子路由
       name: 'User',
-      component: () => import('../views/User.vue')
+      component: () => import('@/views/User.vue')
     }]
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('@/views/Search/index.vue')
   }
 ]
 
