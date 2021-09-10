@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-cell>
+    <van-cell :to="`article/${article.art_id}`">
       <!-- 最多显示两行标题 -->
       <div slot="title" class="van-multi-ellipsis--l2">{{article.title}}</div>
       <!-- 右侧封面图片 -->

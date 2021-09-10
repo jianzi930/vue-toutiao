@@ -8,7 +8,7 @@
         @load="onLoad"
       >
         <!-- 文章列表项 -->
-        <ArticleItem v-for="obj in list" :key="obj.art_id" :article="obj"/>
+        <ArticleItem v-for="obj in list" :key="obj.art_id.toString()" :article="obj"/>
       </van-list>
     </van-pull-refresh>
   </div>

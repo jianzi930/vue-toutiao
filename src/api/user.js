@@ -54,3 +54,65 @@ export const getArticles = data => {
     params: data
   })
 }
+// 添加关注
+export const addFollow = authId => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/user/followings',
+    data: {
+      target: authId
+    }
+  })
+}
+
+// 取消关注
+export const deleteFollow = authId => {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/user/followings/${authId}`
+  })
+}
+// 点赞
+export const addLike = articleId => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/article/likings',
+    data: {
+      target: articleId
+    }
+  })
+}
+
+// 取消点赞
+export const deleteLike = articleId => {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/article/likings/${articleId}`
+  })
+}
+// 发布评论
+export const addComment = data => {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/comments',
+    data
+  })
+}
+// 对评论或评论回复点赞
+export function addCommentLike (commentId) {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/comment/likings',
+    data: {
+      target: commentId
+    }
+  })
+}
+
+// 取消对评论或评论回复点赞
+export function deleteCommentLike (commentId) {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/comment/likings/${commentId}`
+  })
+}

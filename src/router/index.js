@@ -41,6 +41,12 @@ const routes = [
     path: '/search',
     name: 'Search',
     component: () => import('@/views/Search/index.vue')
+  },
+  {
+    path: '/article/:articleId',
+    name: 'Article',
+    component: () => import('@/views/Article/index.vue'),
+    props: true // 配可以在组件内通过props属性访问路由参数
   }
 ]
 
