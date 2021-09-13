@@ -34,6 +34,7 @@ const routes = [
     {
       path: '/user', // path为空表示默认子路由
       name: 'User',
+      exact: true,
       component: () => import('@/views/User.vue')
     }]
   },
@@ -47,6 +48,12 @@ const routes = [
     name: 'Article',
     component: () => import('@/views/Article/index.vue'),
     props: true // 配可以在组件内通过props属性访问路由参数
+  },
+  {
+    name: 'UserProfile',
+    path: '/user/profile/:userId',
+    component: () => import('@/views/UserProfile/index.vue'),
+    props: true
   }
 ]
 

@@ -11,7 +11,7 @@
           />
           <span class="user-name">{{userInfo.name}}</span>
         </div>
-        <van-button type="default" size="mini" round>编辑资料</van-button>
+        <van-button type="default" size="mini" round :to="`user/profile/${userInfo.id}`">编辑资料</van-button>
       </div>
       <div class="user-status">
         <div class=status-item>

@@ -24,6 +24,29 @@ export const getUserInfo = () => {
     // }
   })
 }
+// 获取用户个人信息
+export const getUserProfile = userId => {
+  return request({
+    url: '/app/v1_0/user/profile',
+    target: userId
+  })
+}
+// 修改用户个人信息
+export const updateUserProfile = data => {
+  return request({
+    url: '/app/v1_0/user/profile',
+    method: 'PATCH',
+    data
+  })
+}
+// 更新用户头像
+export function updateUserPhoto (data) {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/photo',
+    data
+  })
+}
 // 获取用户频道接口
 export const getUserChannels = () => {
   return request({
